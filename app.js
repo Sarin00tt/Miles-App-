@@ -27,8 +27,10 @@ const renderChat = () => {
     document.body.appendChild(chatOverlay);
 
     const simulateTyping = () => {
-        document.getElementById('typing').innerText = Math.random() > 0.5 ? "Noctramad is typing..." : "";
-        setTimeout(simulateTyping, Math.random() * 3000 + 2000);
+        // Noctramad is explicitly named here
+        const isTyping = Math.random() > 0.5;
+        document.getElementById('typing').innerText = isTyping ? "Noctramad is typing..." : "";
+        setTimeout(simulateTyping, Math.random() * 2000 + 3000);
     };
     simulateTyping();
 
