@@ -1,0 +1,75 @@
+/* --- Global Aesthetics: Old Money / Paper Base --- */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f1ea; /* Aged paper color */
+    color: #2c2a26;
+    font-family: 'Times New Roman', serif;
+    min-height: 100vh;
+}
+
+/* --- Header Layout --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5%;
+    border-bottom: 1px solid #dcdad0;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #2c2a26;
+    font-size: 0.9rem;
+}
+
+/* --- Hero & Tagline --- */
+.hero {
+    text-align: center;
+    padding-top: 100px;
+}
+
+h1 {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+}
+
+.tagline {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 3rem;
+}
+
+/* --- The Buttons --- */
+.main-action {
+    background: transparent;
+    border: 1px solid #2c2a26;
+    padding: 15px 30px;
+    margin: 0 10px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.main-action:hover {
+    background: #2c2a26;
+    color: #f4f1ea;
+}
+
+#auth-trigger {
+    background: #2c2a26;
+    color: #f4f1ea;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: inherit;
+}

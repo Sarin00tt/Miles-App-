@@ -1,14 +1,39 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miles | For you From a mile away</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  
-</body>
 
+    <header>
+        <div class="logo">Miles</div>
+        <nav>
+            <a href="#">Robes</a>
+            <a href="#">Legons</a>
+            <a href="#">Community</a>
+            <a href="#">Apotles</a>
+        </nav>
+        <button id="auth-trigger">Sign In / Join</button>
+    </header>
+
+    <main id="app-root">
+        <section class="hero">
+            <h1>Miles</h1>
+            <!-- Added your tagline here -->
+            <p class="tagline">For you From a mile away</p>
+            
+            <div id="gateway-container">
+                <button id="online-btn" class="main-action">Go Online</button>
+                <button id="offline-btn" class="main-action">Discover Offline</button>
+            </div>
+        </section>
+        
+        <div id="typing-indicator"></div>
+    </main>
+
+    <script src="app.js" type="module"></script>
+</body>
 </html>
