@@ -1,7 +1,12 @@
 const modal = document.getElementById('modal-container');
 const main = document.getElementById('main-content');
 
-// 1. Sign Up Modal
+// Helper to go home
+const goHome = () => {
+    location.reload();
+};
+
+// Sign Up
 document.getElementById('auth-trigger').onclick = () => {
     modal.innerHTML = `
         <div class="auth-box">
@@ -9,19 +14,17 @@ document.getElementById('auth-trigger').onclick = () => {
             <input type="file" id="pic-upload" accept="image/*" style="display:none">
             <label for="pic-upload" class="upload-label">Upload Photo</label>
             <input type="text" placeholder="Full Name">
-            <select id="user-gender">
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-            </select>
             <input type="email" placeholder="Email">
             <input type="password" placeholder="Password">
+            <input type="password" placeholder="4-Digit Code" maxlength="4" style="text-align:center;">
             <textarea placeholder="Bio" style="height:80px;"></textarea>
             <button class="modal-btn" onclick="modal.style.display='none'">Submit</button>
+            <button class="modal-btn" style="border:none" onclick="modal.style.display='none'">Cancel</button>
         </div>`;
     modal.style.display = 'flex';
 };
 
-// 2. Discover / Search
+// Discover
 document.getElementById('offline-btn').onclick = () => {
     modal.innerHTML = `
         <div class="auth-box">
@@ -33,7 +36,7 @@ document.getElementById('offline-btn').onclick = () => {
     modal.style.display = 'flex';
 };
 
-// 3. Full-Screen Profile View (Layout per 1000041891.png)
+// Refined Profile View
 const renderOfflineCards = () => {
     main.innerHTML = `
         <div class="profile-card" style="width: 100%; height: 90vh; display: flex; flex-direction: column; padding: 20px;">
@@ -42,29 +45,21 @@ const renderOfflineCards = () => {
             </div>
             <div style="padding: 10px;">
                 <h2 style="text-align: left; margin: 0; font-size: 1.8rem;">Arthur, 28</h2>
-                <p style="margin-top: 10px; font-size: 1rem; color: #555;">Professional model. Seeking genuine connections.</p>
+                <p style="margin-top: 10px; font-size: 1rem; color: #555;">Professional model based in Kerala. Seeking genuine connections.</p>
+                <button class="main-action" style="margin-top: 20px;" onclick="goHome()">Back to Home</button>
             </div>
         </div>`;
 };
 
-// 4. Chat with Heterosexual Connection Logic
+// Chat
 function renderChat() {
-    // Current user and target (Assuming these are fetched from your database/state)
-    const currentUser = { gender: 'male' }; 
-    const potentialMatch = { name: 'Noctramad', gender: 'female' }; 
-
-    // Gender check: only allow if opposite
-    if (currentUser.gender === potentialMatch.gender) {
-        alert("No suitable match found based on your preferences.");
-        return;
-    }
-
     const existing = document.querySelector('.chat-overlay');
     if(existing) existing.remove();
     
     const chat = document.createElement('div');
     chat.className = 'chat-overlay';
     chat.innerHTML = `
+        <button class="main-action" style="margin-bottom: 10px;" onclick="goHome()">← Back to Home</button>
         <div id="contact-name" style="font-weight:bold;">Waiting for a lovable...</div>
         <div id="status" style="height: 1rem; font-size: 0.8rem; color: #666; margin-bottom: 10px;"></div>
         <div id="chat-window"></div>
@@ -75,18 +70,16 @@ function renderChat() {
         </div>`;
     document.body.appendChild(chat);
 
-    // Header transition logic
     setTimeout(() => {
-        document.getElementById('contact-name').innerText = potentialMatch.name;
+        document.getElementById('contact-name').innerText = "Noctramad";
     }, 3000);
 
-    // Typing simulation
     const statusEl = document.getElementById('status');
     const simulateTyping = () => {
-        if (document.getElementById('contact-name').innerText === potentialMatch.name) {
+        if (document.getElementById('contact-name').innerText === "Noctramad") {
             const isTyping = Math.random() > 0.5;
             if (isTyping) {
-                statusEl.innerText = `${potentialMatch.name} is typing...`;
+                statusEl.innerText = "Noctramad is typing...";
                 setTimeout(() => { statusEl.innerText = ""; }, Math.random() * 3000 + 2000);
             }
         }
@@ -96,5 +89,4 @@ function renderChat() {
     
     document.getElementById('skip-btn').onclick = renderChat;
 }
-
 document.getElementById('online-btn').onclick = renderChat;
