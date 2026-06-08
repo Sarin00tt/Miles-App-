@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Miles | For you From a mile away</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -12,33 +12,16 @@
         <button id="auth-trigger">Sign In / Join</button>
     </header>
 
-    <main class="hero">
+    <main class="hero" id="main-content">
         <h1>Miles</h1>
         <p class="tagline">For you From a mile away</p>
         <div>
             <button id="online-btn" class="main-action">GO ONLINE</button>
-            <button class="main-action">DISCOVER OFFLINE</button>
+            <button id="offline-btn" class="main-action">DISCOVER OFFLINE</button>
         </div>
     </main>
 
-    <footer>© 2026 MILES | Distance is a choice.</footer>
-
-    <!-- Auth Modal -->
-    <div id="auth-modal" class="auth-overlay">
-        <div class="auth-box">
-            <button id="close-auth" style="border:none; background:none; cursor:pointer; float:right;">✕</button>
-            <h2>Sign In / Join</h2>
-            <div class="upload-container">
-                <label for="profile-pic" class="upload-btn">Add Portrait (Optional)</label>
-                <input type="file" id="profile-pic" accept="image/*" style="display: none;">
-                <span id="file-name" style="font-size: 0.7rem; display:block; margin-bottom:10px;"></span>
-            </div>
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
-            <textarea id="user-bio" placeholder="Add a short bio (Optional)" maxlength="150"></textarea>
-            <button class="main-action" style="width: 100%; margin-top: 15px;">Enter</button>
-        </div>
-    </div>
+    <div id="modal-container" class="auth-overlay"></div>
     <script src="app.js"></script>
 </body>
 </html>
